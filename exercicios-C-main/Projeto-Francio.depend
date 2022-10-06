@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1663680117 source:c:\users\ufca\desktop\liberada\projeto-francio\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1661866974 source:c:\users\ufca\desktop\liberada\projeto-francio\questao 14.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<locale.h>
+
+1661867069 source:c:\users\ufca\desktop\liberada\untitled2.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<locale.h>
+
