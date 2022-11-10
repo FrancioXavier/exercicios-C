@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
+#include <string.h>
 
 /*
 void main()
@@ -371,6 +372,7 @@ int main() {
 
 // DECLARANDO NOTA DE TRINTA ALUNOS E DIZENDO QUEM FOI ACIMA DA MEDIA
 
+/*
 int main(){
 
     float notas[50], media, maior, menor, aprov, reprov, avf, alu;
@@ -424,4 +426,67 @@ int main(){
     printf("%.2f alunos foram reprovados\n", reprov);
     printf("%.2f alunos vao para a avf\n", avf);
     printf("A media da sala foi: %.2f", media);
+}*/
+
+//EXERCÍCIOS MATRIZ
+
+
+// --------- LISTA 9 ---------
+
+
+// Q1
+
+/*
+int main(){
+
+    float matriz[3][3];
+    int lin, col, dprin, dsec, det;
+
+    for(lin = 0; lin < 3; lin++){
+        for(col = 0; col < 3; col++){
+            printf("Digite o valor da linha %d, coluna %d: ", (lin+1), (col+1));
+            scanf("%f", &matriz[lin][col]);
+        }
+    }
+    dprin = (matriz[2][0]*matriz[0][1]*matriz[1][2]) +
+            (matriz[0][0]*matriz[1][1]*matriz[2][2]) +
+            (matriz[1][0]*matriz[2][1]*matriz[0][2]);
+
+    dsec = (matriz[2][2]*matriz[0][1]*matriz[1][0]) +
+           (matriz[0][2]*matriz[1][1]*matriz[2][0]) +
+           (matriz[1][2]*matriz[2][1]*matriz[0][0]);
+
+    det = dprin - dsec;
+
+    printf("O determinante da matriz eh: %d", det);
+
+return 0;
+}*/
+
+//LISTA STRING
+
+
+int main(){
+    char frase[50], c1, c2;
+    int i;
+    printf("Digite uma frase: ");
+    gets(frase);
+
+    printf("Digite um caractere: ");
+    scanf("%s", &c1);
+
+    printf("Digite o segundo caractere: ");
+    scanf("%s", &c2);
+
+
+    for(i = 0; i < strlen(frase); i++){
+        if(frase[i] == c1){
+            frase[i] = c2;
+        }
+    }
+    printf("%s", frase);
+
+    return 0;
+
 }
+
