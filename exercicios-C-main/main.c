@@ -465,7 +465,7 @@ return 0;
 
 //LISTA STRING
 
-
+/*
 int main(){
     char frase[50], c1, c2;
     int i;
@@ -488,5 +488,141 @@ int main(){
 
     return 0;
 
+}*/
+
+/*
+int main(){
+
+    char frase[50];
+    int i;
+
+    printf("Digite uma frase: ");
+    gets(frase);
+
+    for(i = strlen(frase); i >= 0; i--){
+        printf("%c", frase[i]);
+    }
+}*/
+/*
+int main(){
+
+    char frase1[50], frase2[50];
+
+    printf("Digite a primeira frase: ");
+    gets(frase1);
+
+    printf("Digite a segunda frase: ");
+    gets(frase2);
+
+    printf("%s", strcat(frase1, frase2));
+
+}*/
+
+/*
+int main(){
+
+    char frase[50], palavra[50];
+    int cont, i, j, cont2, k;
+
+    printf("Digite uma frase: ");
+    gets(frase);
+
+    printf("Digite uma palavra: ");
+    gets(palavra);
+
+    i = 0;
+    cont2 = 0;
+    cont = 0;
+    k = 0;
+    for(j = 0; j < strlen(frase); j++){
+        for(i = 0; i < strlen(palavra); i++){
+            if(frase[j+i] == palavra[i]){
+                cont2++;
+            } else{
+                cont2 = 0;
+            }
+
+            if (cont2 == strlen(palavra)){
+                cont++;
+                cont2 = 0;
+            }
+        }
+    }
+    printf("A palavra %s foi encontrada %d vezes na frase %s", palavra, cont, frase);
+
+    return 0;
+}*/
+
+//LISTA DE MATRIZES
+
+/*
+int main(){
+
+    int l, c, i, j, val;
+
+    printf("Digite a quantidade de linhas da matriz: ");
+    scanf("%d", &l);
+    printf("Digite a quantidade de colunas da matriz: ");
+    scanf("%d", &c);
+
+    l = l - 1;
+    c = c - 1;
+    int matriz[l][c];
+
+    for(i = 0; i <= l; i++){
+        for(j = 0; j <= c; j++){
+            printf("Digite o valor da linha %d coluna %d: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    printf("\nA matriz: \n");
+    for(i = 0; i <= l; i++){
+        for(j = 0; j <= c; j++){
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("\n A transposta: \n");
+    for(i = 0; i <= c; i++){
+        for(j = 0; j <= l; j++){
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+}*/
+
+// MATRIZ COM PONTEIROS:
+
+int main(){
+
+    float **v;
+    int i, j, m, n;
+
+    scanf("%d", &n); //linha
+    scanf("%d", &m);// coluna
+
+    v = (float **)malloc(n * sizeof(float *));
+
+    for(i = 0; i < n; i++){
+        v[i] = (float *)malloc(m * sizeof(float));
+    }
+
+    for(i = 0; i < n; i++){
+        for(j = 0; j < m; j++){
+            printf("Digite o valor da matriz de posição [%d][%d]: ", i, j);
+            scanf("%f", &v[i][j]);
+        }
+    }
+
+    for(i = 0; i < n; i++){
+        for(j = 0; j < m; j++){
+            printf("%.0f ", v[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
 }
 
