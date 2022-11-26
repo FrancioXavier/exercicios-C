@@ -482,3 +482,309 @@ int main(){
 return 0;
 }*/
 
+//LISTA STRING
+
+/*
+int main(){
+    char frase[50], c1, c2;
+    int i;
+    printf("Digite uma frase: ");
+    gets(frase);
+
+    printf("Digite um caractere: ");
+    scanf("%s", &c1);
+
+    printf("Digite o segundo caractere: ");
+    scanf("%s", &c2);
+
+
+    for(i = 0; i < strlen(frase); i++){
+        if(frase[i] == c1){
+            frase[i] = c2;
+        }
+    }
+    printf("%s", frase);
+
+    return 0;
+
+}*/
+
+/*
+int main(){
+
+    char frase[50];
+    int i;
+
+    printf("Digite uma frase: ");
+    gets(frase);
+
+    for(i = strlen(frase); i >= 0; i--){
+        printf("%c", frase[i]);
+    }
+}*/
+/*
+int main(){
+
+    char frase1[50], frase2[50];
+
+    printf("Digite a primeira frase: ");
+    gets(frase1);
+
+    printf("Digite a segunda frase: ");
+    gets(frase2);
+
+    printf("%s", strcat(frase1, frase2));
+
+}*/
+
+/*
+int main(){
+
+    char frase[50], palavra[50];
+    int cont, i, j, cont2, k;
+
+    printf("Digite uma frase: ");
+    gets(frase);
+
+    printf("Digite uma palavra: ");
+    gets(palavra);
+
+    i = 0;
+    cont2 = 0;
+    cont = 0;
+    k = 0;
+    for(j = 0; j < strlen(frase); j++){
+        for(i = 0; i < strlen(palavra); i++){
+            if(frase[j+i] == palavra[i]){
+                cont2++;
+            } else{
+                cont2 = 0;
+            }
+
+            if (cont2 == strlen(palavra)){
+                cont++;
+                cont2 = 0;
+            }
+        }
+    }
+    printf("A palavra %s foi encontrada %d vezes na frase %s", palavra, cont, frase);
+
+    return 0;
+}*/
+
+//LISTA DE MATRIZES
+
+/*
+int main(){
+
+    int l, c, i, j, val;
+
+    printf("Digite a quantidade de linhas da matriz: ");
+    scanf("%d", &l);
+    printf("Digite a quantidade de colunas da matriz: ");
+    scanf("%d", &c);
+
+    l = l - 1;
+    c = c - 1;
+    int matriz[l][c];
+
+    for(i = 0; i <= l; i++){
+        for(j = 0; j <= c; j++){
+            printf("Digite o valor da linha %d coluna %d: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    printf("\nA matriz: \n");
+    for(i = 0; i <= l; i++){
+        for(j = 0; j <= c; j++){
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("\n A transposta: \n");
+    for(i = 0; i <= c; i++){
+        for(j = 0; j <= l; j++){
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+}*/
+
+// MATRIZ COM PONTEIROS:
+/*
+int main(){
+
+    float **v;
+    int i, j, m, n;
+
+    scanf("%d", &n); //linha
+    scanf("%d", &m);// coluna
+
+    v = (float **)malloc(n * sizeof(float *));
+
+    for(i = 0; i < n; i++){
+        v[i] = (float *)malloc(m * sizeof(float));
+    }
+
+    for(i = 0; i < n; i++){
+        for(j = 0; j < m; j++){
+            printf("Digite o valor da matriz de posição [%d][%d]: ", i, j);
+            scanf("%f", &v[i][j]);
+        }
+    }
+
+    for(i = 0; i < n; i++){
+        for(j = 0; j < m; j++){
+            printf("%.0f ", v[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}*/
+/* SIZEOF(): calcula o tamanho em bytes de uma variavel ou tipo de dado na memoria*/
+
+//VETOR COM ALOCAÇÃO DINAMICA
+
+/*
+int main(){
+
+    int v[10], i, *p;
+
+    p = v;
+    for(i = 0; i < 10; i++){
+        v[i] = i+1;
+    }
+
+    for(i = 9; i >= 0; i--){
+        printf("%d, ", *(p+i));
+    }
+
+}*/
+
+//PRIMEIRA PROVA:
+
+int maior(int *p, int t){
+    int maior, i;
+
+    for(i = 0; i < t; i++){
+        if(i == 0){
+            maior = p[i];
+        } else if(p[i] > maior){
+            maior = p[i];
+        }
+    }
+
+    return maior;
+}
+
+int verifica_num(int **p, int n, int num){
+    int i, j, val;
+
+    val = 1;
+    for(i = 0; i < n; i++){
+        for(j = 0; j < n; j++){
+            if(p[i][j] == num){
+                val = 0;
+                return val;
+            }
+        }
+    }
+
+    return val;
+
+}
+
+int num_diff(int **p, int n){
+    int i, j, k, l, val;
+
+    val = 1;
+    for(i = 0; i < n; i++){
+        for(j = 0; j < n; j++){
+            for (k = 0; k < n; k++){
+                for(l = 0; l < n; l++){
+                    if(i != k || j != l){
+                        if(p[i][j] == p[k][l]){
+                            val = 0;
+                            return val;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return val;
+
+}
+
+
+int main(){
+
+    int i, j, **m, tam, *v, x, verif, loc;
+
+    printf("digite a quantidade de linhas e colunas da matriz e a quantidade de valores do vetor: ");
+    scanf("%d", &tam);
+
+    m = (int *)malloc(tam * sizeof(int));
+
+    for(i = 0; i < tam; i++){
+        m[i] = (int*)malloc(tam * sizeof(int));
+    }
+
+    for(i = 0; i < tam; i++){
+        for(j = 0; j < tam; j++){
+            printf("Digite o valor da posicao [%d][%d]: ", i, j);
+            scanf("%d", &m[i][j]);
+        }
+    }
+
+    verif = num_diff(m, tam);
+    if(verif == 0){
+        while(verif == 0){
+            printf("\nValores repitidos encontrados, preencha novamente: \n");
+            for(i = 0; i < tam; i++){
+                for(j = 0; j < tam; j++){
+                    printf("Digite o valor da posicao [%d][%d]: ", i, j);
+                    scanf("%d", &m[i][j]);
+                }
+            }
+            verif = num_diff(m, tam);
+        }
+    }
+
+    v = (int *) malloc(tam * sizeof(int));
+
+    printf("\nDigite o valor que queira encontrar na matriz: ");
+    scanf("%d", &x);
+
+    loc = verifica_num(m, tam, x);
+    int lin, col;
+
+    if(loc == 1){
+        printf("Numero nao encontrado! ate logo:)");
+        return 0;
+    } else{
+        for(i = 0; i < tam; i++){
+            for(j = 0; j < tam; j++){
+                if(x == m[i][j]){
+                    lin = i;
+                    col = j;
+                }
+            }
+        }
+
+        for(i = 0; i <= tam; i++){
+            v[i] = m[lin][i];
+        }
+        printf("\nVetor = ");
+        for(i = 0; i <= col; i++){
+            printf("%d ", v[i]);
+        }
+
+        printf("\nO maior valor do vetor eh: %d", maior(v, tam));
+    }
+
+}
+
