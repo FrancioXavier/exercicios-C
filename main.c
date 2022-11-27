@@ -665,7 +665,7 @@ int main(){
 }*/
 
 //PRIMEIRA PROVA:
-
+/*
 int maior(int *p, int t){
     int maior, i;
 
@@ -784,6 +784,45 @@ int main(){
         }
 
         printf("\nO maior valor do vetor eh: %d", maior(v, tam));
+    }
+
+}*/
+
+int main(){
+
+    int l, c, n, i, j, **m, cont;
+
+    printf("Digite a quantidade de linhas da matriz: ");
+    scanf("%d", &l);
+
+    printf("Digite a quantidade de colunas: ");
+    scanf("%d", &c);
+
+    printf("Digite o valor de N: ");
+    scanf("%d", &n);
+
+    m = (float **)malloc(l * sizeof(float *));
+
+    for (i = 0; i < l; i++){
+        m[i] = (float *)malloc(c * sizeof(float));
+    }
+
+    cont = 0;
+    for(i = 0; i < l; i++){
+        for(j = 0; j < c; j++){
+            m[i][j] = n - cont;
+            cont++;
+            if (cont > 2 * n){
+                cont = 0;
+            }
+        }
+    }
+
+    for(i = 0; i < l; i++){
+        for(j = 0; j < c; j++){
+            printf(" %d ", m[i][j]);
+        }
+        printf("\n");
     }
 
 }
