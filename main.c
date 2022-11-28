@@ -786,8 +786,9 @@ int main(){
         printf("\nO maior valor do vetor eh: %d", maior(v, tam));
     }
 
-}*/
+}
 
+/*
 int main(){
 
     int l, c, n, i, j, **m, cont;
@@ -820,10 +821,89 @@ int main(){
 
     for(i = 0; i < l; i++){
         for(j = 0; j < c; j++){
-            printf(" %d ", m[i][j]);
+            printf("  %d  ", m[i][j]);
         }
         printf("\n");
     }
 
+}*/
+/*
+char gabarito(char *v){
+    int i;
+
+    for(i = 0; i < 10; i++){
+        printf("Resposta da questao %d: ", (i+1));
+        scanf("%s", &v[i]);
+        if(v[i] != 'a' || v[i] != 'b' || v[i] != 'c' || v[i] != 'd'){
+            printf("Resposta inválida! Digite novamente: ");
+            scanf("%s", &v[i]);
+        }
+    }
+    return v;
 }
 
+char alunos(char **m, char *v, int al){
+    int i, j;
+
+    for(i = 0; i < al; i++){
+        for(j = 0; j < 11; j++){
+            if(j == 0){
+                printf("Digite o nome do aluno %d: ", (i+1));
+                scanf("%s", &m[i][j]);
+            }
+        }
+    }
+    for(i = 0; i < al; i++){
+        for(j = 0; j < 11; j++){
+            if(j == 0){
+                printf("%c", m[i][j]);
+            }
+        }
+    }
+}
+int main(){
+
+    char *gab, **provas;
+    int i, alu;
+
+    gab = (char *)malloc(10 * sizeof(char));
+
+    printf("Digite a quantidade de alunos: ");
+    scanf("%d", &alu);
+
+    provas = (char **)malloc(alu * sizeof(char *));
+
+    for(i = 0; i < 10; i++){
+        provas[i] = (char *)malloc(10 * sizeof(char));
+    }
+
+    //gabarito(gab);
+
+    alunos(provas, gab, alu);
+}*/
+
+int main(){
+
+    int quant, i;
+    float media, total, *notas;
+
+    printf("Digite a quantidade de alunos da sala: ");
+    scanf("%d", &quant);
+
+
+    notas = (float *)malloc(quant * sizeof(float));
+
+    total = 0;
+    for(i = 0; i < quant; i++){
+        printf("Digite a nota do aluno %d : ", i+1);
+        scanf("%f", &notas[i]);
+        total += notas[i];
+    }
+
+    media = total / quant;
+
+    printf("A media da turma eh: %.2f", media);
+
+    return 0;
+
+}
